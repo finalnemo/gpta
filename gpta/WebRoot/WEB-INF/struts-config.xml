@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+<form-beans>
+<form-bean name="registerForm" type="com.zhu.form.RegisterForm"/>
+<form-bean name="loginForm" type="com.zhu.form.LoginForm"/>
+<form-bean name="userinfoForm" type="com.zhu.form.UserInfoForm" />
+<form-bean name="adminloginForm" type="com.zhu.form.AdminLoginForm" />
+<form-bean name="adminForm" type="com.zhu.form.AdminForm" />
+<form-bean name="hotspotForm" type="com.zhu.form.HotSpotForm" />
+<form-bean name="orderForm" type="com.zhu.form.OrderForm" />
+<form-bean name="carForm" type="com.zhu.form.CarForm" />
+<form-bean name="messageForm" type="com.zhu.form.MessageForm" />
+
+</form-beans>
+<action-mappings>
+    <action path="/register" name="registerForm" scope="request"
+     type="com.zhu.action.RegisterAction" validate="false" parameter="m">
+         <forward name="list" path="/WEB-INF/jsp/Register.jsp" />
+    </action>
+    <action path="/login" name="loginForm" scope="request" 
+     type="com.zhu.action.LoginAction" validate="false" parameter="m" >
+    	 <forward name="list" path="/WEB-INF/jsp/UserInfo.jsp" />
+    	 <forward name="index" path="/WEB-INF/jsp/index.jsp" />
+    	 <forward name="wrong" path="/WEB-INF/jsp/index.jsp" />
+    </action>
+    <action path="/index" scope="request" type="com.zhu.action.IndexAction" cancellable="true">
+    	<forward name="list" path="/WEB-INF/jsp/index.jsp" />
+    </action>
+    <action path="/userinfo" name="userinfoForm" type="com.zhu.action.UserInfoAction" parameter="m"
+   			 scope="request"  cancellable="true" >
+   		 <forward name="list" path="/WEB-INF/jsp/UserInfoDetail.jsp" />
+   		 <forward name="success" path="/WEB-INF/jsp/UserInfoDetail.jsp" />
+   		 <forward name="updpwd" path="/WEB-INF/jsp/UpdPWD.jsp" />
+   		 <forward name="wrong" path="/WEB-INF/jsp/index.jsp" />
+   		 <forward name="userorder" path="/WEB-INF/jsp/UserOrder.jsp" />
+   	</action>
+    <action path="/adminlogin" name="adminloginForm" type="com.zhu.action.AdminLoginAction" parameter="m"
+     scope="request" cancellable="true">
+     	<forward name="success" path="/WEB-INF/jsp/AdminIndex.jsp" />
+     	<forward name="wrong" path="/WEB-INF/jsp/AdminLogin.jsp" />
+    </action>
+    <action path="/admininfo" name="adminForm" type="com.zhu.action.AdminInfoAction" parameter="m" 
+       scope="request" cancellable="true" >
+        <forward name="list" path="/WEB-INF/jsp/AdminInfo.jsp" />
+     	<forward name="wrong" path="/WEB-INF/jsp/AdminLogin.jsp" />
+     	<forward name="add" path="/WEB-INF/jsp/AdminAdd.jsp" />
+     	<forward name="alterpwd" path="/WEB-INF/jsp/AdminAlterPWD.jsp" />
+     	<forward name="user" path="/WEB-INF/jsp/UserInfoList.jsp" />
+    </action>
+    <action path="/hotspot"  name="hotspotForm" type="com.zhu.action.HotSpotAction" parameter="m"
+      scope="request" cancellable="true">
+      <forward name="list" path="/WEB-INF/jsp/HotSpotInfo.jsp" />
+      <forward name="wrong" path="/WEB-INF/jsp/AdminLogin.jsp" />
+      <forward name="add" path="/WEB-INF/jsp/HotSpotAdd.jsp" />
+      <forward name="detail" path="/WEB-INF/jsp/HotSpotDetail.jsp" />
+      
+    </action>
+    <action path="/order" name="orderForm" type="com.zhu.action.OrderAction" parameter="m"
+      scope="request" cancellable="true" >
+      <forward name="detail" path="/WEB-INF/jsp/UserOrderDetail.jsp" />
+      <forward name="list" path="/WEB-INF/jsp/OrderInfo.jsp" />
+      <forward name="wrong" path="/WEB-INF/jsp/index.jsp" />
+      <forward name="fail" path="/WEB-INF/jsp/AdminLogin.jsp" />
+      <forward name="people" path="/WEB-INF/jsp/HotSpotPeople.jsp" />
+    </action>
+    <action path="/car" name="carForm" type="com.zhu.action.CarAction" parameter="m"
+     scope="request" cancellable="true" >
+     <forward name="list" path="/WEB-INF/jsp/CarInfo.jsp" />
+     <forward name="add" path="/WEB-INF/jsp/CarAdd.jsp" />
+     <forward name="wrong" path="/WEB-INF/jsp/AdminLogin.jsp" />
+     <forward name="detail" path="/WEB-INF/jsp/CarDetail.jsp" />
+    </action>
+    <action path="/message" name="messageForm" type="com.zhu.action.MessageAction" parameter="m"
+      scope="request" cancellable="true" >
+      <forward name="list" path="/WEB-INF/jsp/MessageInfo.jsp" />
+      <forward name="wrong" path="/WEB-INF/jsp/AdminLogin.jsp" />
+      
+    </action>
+      
+      
+      
+      
+</action-mappings>
+</struts-config>
+
